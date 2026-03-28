@@ -38,24 +38,23 @@ const App = () => {
   }, []);
 
   const login = async (email: string) => {
-    try {
-      const res = await fetch("/api/auth", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email })
-      });
-      const data = await res.json();
-      if (data.success) {
-        setUser(data.user);
-        localStorage.setItem("hero_user", JSON.stringify(data.user));
-        return true;
-      }
-      return false;
-    } catch (err) {
-      console.error(err);
-      return false;
-    }
-  };
+  // Check if it's a valid organization email
+  if (email.endsWith("@csucc.edu.ph")) {
+    const mockUser = {
+      email: email,
+      name: "Davie Sialongo", // You can pull this from the email string later
+      role: "Admin"
+    };
+
+    // Save to state and localStorage so it stays logged in
+    setUser(mockUser);
+    localStorage.setItem("hero_user", JSON.stringify(mockUser));
+    return true;
+  }
+  
+  // If the email doesn't match our domain
+  return false;
+};
 
   const logout = () => {
     setUser(null);
