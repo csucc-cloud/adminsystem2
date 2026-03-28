@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme {
+  --color-hero-navy: #000080;
+  --color-hero-gold: #FFD700;
+  --color-hero-white: #FFFFFF;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-900 font-sans;
+  }
+}
+
+@layer components {
+  .hero-card {
+    @apply bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden transition-all hover:shadow-md;
+  }
+  
+  .hero-btn-primary {
+    @apply bg-hero-navy text-hero-gold font-semibold py-2 px-4 rounded-lg transition-colors hover:opacity-90 active:scale-95;
+  }
+  
+  .hero-btn-secondary {
+    @apply bg-hero-gold text-hero-navy font-semibold py-2 px-4 rounded-lg transition-colors hover:opacity-90 active:scale-95;
+  }
+  
+  .hero-input {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-hero-navy focus:border-transparent outline-none transition-all;
+  }
+}
