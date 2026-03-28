@@ -1,0 +1,5 @@
+{
+  "name": "HERO Organization Integrated Web System",
+  "description": "A professional management system for HERO Organization featuring attendance tracking with QR/Scan gun support and a financial ledger with receipt generation.",
+  "requestFramePermissions": ["camera"]
+}
